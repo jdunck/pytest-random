@@ -2,7 +2,7 @@ from setuptools import setup
 import os
 
 
-version = '0.02'
+version = '0.03'
 
 try:  # this block doesn't work under tox
   here = os.path.abspath(os.path.dirname(__file__))

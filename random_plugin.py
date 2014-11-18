@@ -34,6 +34,11 @@ def pytest_collection_modifyitems(session, config, items):
     the items in-place."""
     if not config.option.random:
         return
+
+    # shuffle depends on the original ordering as well as the random seed.
+    #  therefore, pre-sort it before shuffling.
+    items.sort(key=lambda item: item.nodeid)
+
     random = Random()
     random.seed(config.option.random_seed)
     random.shuffle(items)
